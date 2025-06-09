@@ -1,9 +1,9 @@
-### sequence-design-guide
+# sequence-design-guide
 Protocol to redesign enzyme sequences with ProteinMPNN followed in Krasnow et. al. 2025
 
 ## Section I: generate residue constraints
 
-# Distance analysis for active site constraints
+### Distance analysis for active site constraints
 
 This step will analyze the structure of your protein and measure the distance from each residue to the active site, generating list of constrained residues below a specified distance cutoff. Since it is likely that no structure of your protein has been solved in complex with substrate, the script is written to do the distance measurements on a homolog bound to substrate and map the constrained residues to your target protein. You can use a substrate-bound structure of the target protein if one is available or an AlphaFold3 model if you trust it.
 
