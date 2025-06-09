@@ -66,6 +66,8 @@ The file hits.fasta containing the sequence of each hit from the search should h
 11.	Run the cells one at a time, pasting in the names your target protein fasta and Blast output files where needed. Paste in the distance-constrained residue list when prompted. 
 12.	Check the ‘_constraints.csv’ output generated. Confirm that the correct residues were selected using the pymol commands. The ‘MPNN fix string’ column will be used in the next step, which is to predict protein sequences using ProteinMPNN.
 
+## Section II: sequence generation
+
 ### Generate redesigned sequences with ProteinMPNN
 
 We will now set up the ProteinMPNN program code which will allow us to then deign sequences according to our constraints made in the previous steps. 
@@ -81,6 +83,7 @@ Software:
 `source activate mlfold`
 
 `conda install pytorch::pytorch torchvision torchaudio -c pytorch` refer to https://pytorch.org/ if the pytorch installation doesn’t work
+
 `conda deactivate`
 
 •	design_sequences_tutorial folder provided with this tutorial. Unzip and paste this folder into the ProteinMPNN folder with all the installed code
