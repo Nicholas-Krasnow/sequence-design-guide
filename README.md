@@ -9,7 +9,7 @@ This step will analyze the structure of your protein and measure the distance fr
 
 Install required software: 
 1. distance_constraint_analysis.ipynb (Google Colab Notebook)
-
+Protocol:
 1.	Find a homolog of your target protein that is closely related in structure and has a structure solved with the substrate bound, or generate an AF3 structure. Download the pdb file of this substrate-bound structure.
 2.	Create a folder in your Google Drive home directory titled ‘pdbs’. Upload the pdb file of the pdb of the homolog with substrate bound into this folder.
 3.	Create a pairwise alignment between your protein sequence and the homolog protein sequence (this can be done in Geneious). The homolog should be the first sequence and the target protein should be the second. Export the alignment in .fasta format.
