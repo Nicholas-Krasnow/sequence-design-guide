@@ -95,3 +95,43 @@ Steps:
 3.	Open the .sh file and follow the instructions in the commented lines, indicating where to change the names of variables to reflect your target structure, your desired file names, your residue constraints, etc. 
 4.	Run your .sh script on the terminal (e.g., sh sequence_design_monomer.sh). Outputs should be generated including a folder with a “seqs” subfolder containing your generated sequences
 
+## Section III: post-processing and analysis of designed sequences
+
+### Prepare sequences for alphafold prediction and run alphafold on the designed sequences
+
+Software:
+
+Scripts provided with the tutorial:
+
+- deduplicate.ipynb
+- rename_fastas_for_CO.ipynb
+- unzip.sh
+- extract_pdb.ipynb
+- extract_pLDDT.ipynb
+- designs_calc_rmsd.ipynb
+  
+Colabfold notebook for running large batches of alphafold predictions: 
+- AF2multi_NAK.ipynb
+
+Steps
+
+Prepare files
+•	Navigate back to the design_sequences_tutorial folder in the ProteinMPNN folder where you ran the sequence design script. Paste the deduplicate.ipynb and rename_fastas_for_CO.ipynb scripts here. 
+•	Run deduplicate.ipynb, modifying the input fasta directories to your directories where your sequences were generated. 
+•	Run rename_fastas_for_CO.ipynb to generate a fasta of the deduplicated sequences where each entry has a unique name. Make a copy of this fasta and manually add an entry for the WT sequence and any other controls you will test alongside your design.
+
+Run alphafold
+
+•	Run alphafold on all the designs: log into the liuserlogs google drive. Make a folder for your experiment and upload your deduplicated, renamed fasta here. Navigate into “colab notebooks’ and make a copy of AF2multi_NAK.ipynb, the script for running predictions for a list of sequences in a fasta file. Change the runtime to A100 GPU. Change the fasta input directory and file to your uploaded fasta. Alphafold is now ready to be run with a few considerations specific to your protein:
+o	AF2 will by default generate an MSA for each input protein and use that to find correlated residues. Designed sequences do not have evolutionary relatives so this doesn’t make sense when doing protein design. Instead, we should changd the MSA mode to “custom” and specify the input MSA to be the MSA of the WT protein, which we could take from an AF2 prediction of the WT and upload that. Alternatively, we could run AF2 without any MSA at all, but would need to first confirm that AF2 can accurately predict the WT structure without an MSA since MSAs greatly enhance performance. MSA-free AF2, when possible, is probably better for ruling out MPNN sequences that don’t fold since the WT MSA may lead to bad MPNN sequences being predicted as false positives. Another idea is to remove the MSA but provide the WT structure as a template. I have only done the first idea so far.
+o	The script is set to run predictions for monomers but the model type can be changed to  alphafold2_multimer for predicting complexes
+
+Analyze alphafold scores
+•	Download all the output zip files to a safe location, unzip with unzip.sh
+•	Run extract_pdb.ipynb to make a folder of all the rank 1 prediciton pdbs
+•	run extract_pLDDT.ipynb to analyze pLDDT scores. When plotting in the last step, change the bins and legend according to your parameter groups
+•	Analyze rmsd with pyrosetta: navigate to pdbs folder in your google drive (not liuserlogs). Upload the rank001 pdbs file. Upload and run colab notebook in google drive designs_calc_rmsd.ipynb to analyze rmsds. During the plotting step, divide your data by parameter group as done before for pLDDTs. Note that these calculations are not consistent with pymol align which produces lower RMSDs, I think Pyrosetta and Pymol have different alignment algorithms. 
+•	Spot check some the predicted structures in pymol and confirm that they are consistent with the target structure.
+•	If there are any outliers with poor agreement with the target structure they can be filtered out from the list to experimentally characterize. If scores are low and RMSDs high overall the design process or structure prediction should be revisited to figure out why before testing experimentally.
+
+
