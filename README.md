@@ -66,3 +66,29 @@ The file hits.fasta containing the sequence of each hit from the search should h
 11.	Run the cells one at a time, pasting in the names your target protein fasta and Blast output files where needed. Paste in the distance-constrained residue list when prompted. 
 12.	Check the ‘_constraints.csv’ output generated. Confirm that the correct residues were selected using the pymol commands. The ‘MPNN fix string’ column will be used in the next step, which is to predict protein sequences using ProteinMPNN.
 
+### Generate redesigned sequences with ProteinMPNN
+
+We will now set up the ProteinMPNN program code which will allow us to then deign sequences according to our constraints made in the previous steps. 
+
+Software:
+
+•	ProteinMPNN code: download the entire repository from github (https://github.com/dauparas/ProteinMPNN). Unzip and move to a safe place (e.g., documents)
+•	Anaconda (https://docs.anaconda.com/free/anaconda/install/index.html). Confirm your installation by entering the command “conda” in the terminal; a list of conda commands should be printed
+•	 Create a conda environment with the necessary packages to run ProteinMPNN by running the following terminal commands:
+
+`conda create --name mlfold`
+
+`source activate mlfold`
+
+`conda install pytorch::pytorch torchvision torchaudio -c pytorch` refer to https://pytorch.org/ if the pytorch installation doesn’t work
+`conda deactivate`
+
+•	design_sequences_tutorial folder provided with this tutorial. Unzip and paste this folder into the ProteinMPNN folder with all the installed code
+
+Steps:
+
+1.	Introduce  your target structure pdb file: navigate to the design_sequences_tutorial folder in the ProteinMPNN folder. replace the target_structure folder (or target_structure_oligomer) with a folder with the same name as the pdb of your target structure. Paste the pdb into this folder. If you’re designing a multistate protein, you’ll need a single merged pdb with each conformation as a different chain. The two chains should be moved very far apart so that the model doesn’t misinterpret the two chains as forming interactions between each other.
+2.	Make a copy of the sequence_design_monomer.sh script if designing a monomer, the sequence_design_homo-oligomer.sh file if doing a homo-oligomer, or sequence_design_multistate if designing a multistate protein. Rename it to describe your experiment/constraints.
+3.	Open the .sh file and follow the instructions in the commented lines, indicating where to change the names of variables to reflect your target structure, your desired file names, your residue constraints, etc. 
+4.	Run your .sh script on the terminal (e.g., sh sequence_design_monomer.sh). Outputs should be generated including a folder with a “seqs” subfolder containing your generated sequences
+
