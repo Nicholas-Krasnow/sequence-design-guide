@@ -46,9 +46,10 @@ If this returns a blast-related error other than “command not found” then th
 5.	Download the database in which you want to conduct the homology search. I used uniref50: https://www.uniprot.org/help/downloads. Unzip and move the downloaded fasta file to the dbs folder
 6.	Convert the fasta file into a BLAST-searchable database with the terminal commands:
 `cd ~/Documents/dbs`
+
 `Makeblastdb -in uniref50.fasta -title uniref50 -dbtype prot -out uniref50 -parse_seqids`
 
-7.	Run the blast search for your target protein against your chosen database with the terminal commands, replacing *.fasta with the name of your query sequence fasta file:
+8.	Run the blast search for your target protein against your chosen database with the terminal commands, replacing *.fasta with the name of your query sequence fasta file:
 
 `cd ~/Documents/blast_analysis`
 `blastp -query *.fasta -db ../dbs/uniref50 -out blast_out_table.tsv -evalue 1e-4 -outfmt 6`
@@ -61,4 +62,4 @@ The file hits.fasta containing the sequence of each hit from the search should h
 10.	Open Jupyter notebook with the terminal command: jupyter notebook. When jupyter opens, navigate to the folder with the .ipynb file and open it
 11.	Run the cells one at a time, pasting in the names your target protein fasta and Blast output files where needed. Paste in the distance-constrained residue list when prompted. 
 12.	Check the ‘_constraints.csv’ output generated. Confirm that the correct residues were selected using the pymol commands. The ‘MPNN fix string’ column will be used in the next step, which is to predict protein sequences using ProteinMPNN.
-![image](https://github.com/user-attachments/assets/ff36869e-3124-4138-be54-343d1ca59bad)
+
