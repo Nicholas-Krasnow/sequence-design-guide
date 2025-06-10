@@ -133,7 +133,7 @@ The script is set to run predictions for monomers but the model type can be chan
 
 If you want to predict designs in complex with non-protein components such as small molecules, ions, nucleic acids, use AF3 or related models.
 
-Analyze alphafold scores
+Analyze alphafold outputs
 
 5. Download all the output zip files to a safe location, unzip with unzip.sh
 6. Run extract_pdb.ipynb to make a folder of all the rank 1 prediciton pdbs
