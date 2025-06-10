@@ -142,4 +142,17 @@ Analyze alphafold outputs
 9. Spot check some the predicted structures in pymol and confirm that they are consistent with the target structure.
 10. If there are any outliers with poor agreement with the target structure they can be filtered out from the list to experimentally characterize. If scores are low and RMSDs high overall the design process or structure prediction should be revisited to figure out why before testing experimentally.
 
+### Order eblocks of designs with cloning overhangs for experimental characterization
 
+Protein sequences will be E. coli codon optimized and overhangs will be appended for golden gate cloning into a protein expression/purification backbone. 
+
+Requirements:
+LM627 golden gate acceptor plasmid map for expression/purification: https://www.addgene.org/191551/. This plasmid is compatible with golden gate cloning using the BsaI restriction enzyme. To improve cloning efficiency, the plasmid encodes a toxin that is replaced by the insert upon successful cloning so that cells transformed with unreacted acceptor plasmid do not grow into colonies while cells transformed with assembled plasmids will grow. To make stocks of cells or plasmid preps of acceptor LM627, the plasmid must therefore be transformed into a strain containing the antitoxin (i.e., NEB Stable cells)
+
+1.	Go to the Genscript online codon optimization tool: https://www.genscript.com/tools/gensmart%2dcodon%2doptimization
+2.	Upload the fasta file of all your deduplicated, renamed designs
+3.	Specify the following flanking sequences for all entries: 5’ flanking ATACATATGTCGGTCTCAAGGA, 3’ flanking CATCATCACCATCACCATTGATTCCCGAGACCGGCAGCCATCA
+4.	Set expression host to E. coli, set exclude sequences to exclude the restriction site BsaI [GGTCTC]
+5.	Run codon optimization, save the output to as Excel file
+6.	Confirm that the overhangs were designed correctly by checking that an example optimized sequence can be golden gate cloned with the LM627 acceptor plasmid using the Geneious cloning tool in the top taskbar
+7.	Place an order for the output list of optimized sequences as IDT eblocks
