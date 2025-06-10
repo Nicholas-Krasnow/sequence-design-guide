@@ -142,7 +142,7 @@ Analyze alphafold outputs
 9. Spot check some the predicted structures in pymol and confirm that they are consistent with the target structure.
 10. If there are any outliers with poor agreement with the target structure they can be filtered out from the list to experimentally characterize. If scores are low and RMSDs high overall the design process or structure prediction should be revisited to figure out why before testing experimentally.
 
-### Order eblocks of designs with cloning overhangs for experimental characterization
+### Order synthetic genes of designs with cloning overhangs for experimental characterization
 
 Protein sequences will be E. coli codon optimized and overhangs will be appended for golden gate cloning into a protein expression/purification backbone. 
 
@@ -155,4 +155,4 @@ LM627 golden gate acceptor plasmid map for expression/purification: https://www.
 4.	Set expression host to E. coli, set exclude sequences to exclude the restriction site BsaI [GGTCTC]
 5.	Run codon optimization, save the output to as Excel file
 6.	Confirm that the overhangs were designed correctly by checking that an example optimized sequence can be golden gate cloned with the LM627 acceptor plasmid using the Geneious cloning tool in the top taskbar
-7.	Place an order for the output list of optimized sequences as IDT eblocks
+7.	Place an order for the output list of optimized sequences as synthetic genes (e.g., IDT eblocks)
