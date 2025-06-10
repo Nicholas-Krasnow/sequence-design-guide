@@ -101,6 +101,8 @@ Steps:
 
 Software:
 
+-PyMOL software https://pymol.org/ and the python package pymol
+
 Scripts provided with the tutorial:
 
 - deduplicate.ipynb
@@ -108,7 +110,7 @@ Scripts provided with the tutorial:
 - unzip.sh
 - extract_pdb.ipynb
 - extract_pLDDT.ipynb
-- designs_calc_rmsd.ipynb
+- calc_rmsd_pymol.py
   
 Colabfold notebook for running large batches of alphafold predictions: 
 - AF2multi_NAK.ipynb
@@ -136,7 +138,7 @@ Analyze alphafold scores
 5. Download all the output zip files to a safe location, unzip with unzip.sh
 6. Run extract_pdb.ipynb to make a folder of all the rank 1 prediciton pdbs
 7. run extract_pLDDT.ipynb to analyze pLDDT scores. When plotting in the last step, change the bins and legend according to your parameter groups
-8. Analyze rmsd with pyrosetta: navigate to pdbs folder in your google drive (not liuserlogs). Upload the rank001 pdbs file. Upload and run colab notebook in google drive designs_calc_rmsd.ipynb to analyze rmsds. During the plotting step, divide your data by parameter group as done before for pLDDTs. Note that these calculations are not consistent with pymol align which produces lower RMSDs, I think Pyrosetta and Pymol have different alignment algorithms. 
+8. Analyze rmsd with pymol: Open the pymol app. Open the calc_rmsd_pymol.py script, modifying inputs to your desired reference pdb (e.g., structure of the WT) and your pdbs_rank001 folder. During the plotting step, divide your data by parameter group as done before for pLDDTs.
 9. Spot check some the predicted structures in pymol and confirm that they are consistent with the target structure.
 10. If there are any outliers with poor agreement with the target structure they can be filtered out from the list to experimentally characterize. If scores are low and RMSDs high overall the design process or structure prediction should be revisited to figure out why before testing experimentally.
 
