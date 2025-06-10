@@ -1,5 +1,8 @@
 # sequence-design-guide
 Protocol to redesign enzyme sequences with ProteinMPNN followed in Krasnow et. al. 2025
+![image](https://github.com/user-attachments/assets/e3e26f1b-042a-4fb2-9b8f-b2239f380f4d)
+
+
 
 ## Section I: generate residue constraints
 
