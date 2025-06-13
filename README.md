@@ -17,7 +17,7 @@ Install required software:
 5.	Upload the Colab notebook to your ‘Colab Notebooks’ folder to your Drive home directory.
 6.	Run all the cells in the Colab Notebook one at a time, following instructions in the file as indicated in the text. Comments are provided to explain code and provide warnings for potential changes needed for different situations that weren't encounted in this paper. 
 
-### Conservation anaylsis for evolutionary constraints
+### Conservation analysis for evolutionary constraints
 
 This step will conduct a sequence homology search to analyze the conservation of each residue. This information will be used after to generate lists of residues to constrain from design.
 
