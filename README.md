@@ -34,7 +34,9 @@ BLAST+ Installation instructions provided below. For Python and Jupyter, follow 
 2.	Add the program files to the Path so that your computer knows where to find them. Run the commands in the terminal:
 
 `Echo PATH=$PATH:~/Documents/ncbi-blast-2.15.0+/bin>>.bashrc`
+
 `Echo export PATH>>.bashrc`
+
 `Source .bashrc`
 
 Test the installation by entering 
