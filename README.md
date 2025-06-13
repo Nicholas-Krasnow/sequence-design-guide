@@ -144,7 +144,7 @@ Analyze alphafold outputs
 5. Download all the output zip files to a safe location, unzip with unzip.sh
 6. Run extract_pdb.ipynb to make a folder of all the rank 1 prediciton pdbs
 7. run extract_pLDDT.ipynb to analyze pLDDT scores. When plotting in the last step, change the bins and legend according to your parameter groups
-8. Analyze rmsd with pymol: Open the pymol app. Open the calc_rmsd_pymol.py script, modifying inputs to your desired reference pdb (e.g., structure of the WT) and your pdbs_rank001 folder. During the plotting step, divide your data by parameter group as done before for pLDDTs.
+8. Analyze RMSD with pymol: Open the pymol app. Open the calc_rmsd_pymol.py script, modifying inputs to your desired reference pdb (e.g., structure of the WT) and your pdbs_rank001 folder. During the plotting step, divide your data by parameter group as done before for pLDDTs.
 9. Spot check some the predicted structures in pymol and confirm that they are consistent with the target structure.
 10. If there are any outliers with poor agreement with the target structure they can be filtered out from the list to experimentally characterize. If scores are low and RMSDs high overall the design process or structure prediction should be revisited to figure out why before testing experimentally.
 
