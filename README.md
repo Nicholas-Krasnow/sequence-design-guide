@@ -38,7 +38,9 @@ BLAST+ Installation instructions provided below. For Python and Jupyter, follow 
 `Source .bashrc`
 
 Test the installation by entering 
+
 `Blastp`
+
 If this returns a blast-related error other than “command not found” then the installation was successful.
 
 3.	Make a folder in your Documents where you’ll run blast analysis, name this folder blast_analysis. Make another folder in your Documents where you’ll store the database you’re searching, name this folder “dbs” (this folder should not be nested within blast_analysis)
@@ -58,11 +60,13 @@ If this returns a blast-related error other than “command not found” then th
 
 A file named “blast_out_table.csv” will be generated which contains a list of homologs found. The -evalue flag value can be tuned to modulate the stringency of the search (smaller evalue = more stringent).
 8.	Extract the sequences of the search hits: open the blast_out_table.csv file and copy the “ids” column values into a text file called hits.txt in the same folder (don’t include the column header). Run the terminal command:
+
 `Blastdbcmd -db ../dbs/uniref50 -dbtype prot -entry_batch hits.txt -outfmt %f -out hits.fasta`
+
 The file hits.fasta containing the sequence of each hit from the search should have been created. These search results will be used in the next step to quantify sequence conservation and generate the list of residues to constrain by conservation. 
 
 9.	Copy the conservation_and_constraints.ipynb file to the directory that has the Blast anaylsis outputs
-10.	Open Jupyter notebook with the terminal command: jupyter notebook. When jupyter opens, navigate to the folder with the .ipynb file and open it
+10.	Open Jupyter notebook with the terminal command: `jupyter notebook`. When jupyter opens, navigate to the folder with the .ipynb file and open it
 11.	Run the cells one at a time, pasting in the names your target protein fasta and Blast output files where needed. Paste in the distance-constrained residue list when prompted. 
 12.	Check the ‘_constraints.csv’ output generated. Confirm that the correct residues were selected using the pymol commands. The ‘MPNN fix string’ column will be used in the next step, which is to predict protein sequences using ProteinMPNN.
 
