@@ -17,7 +17,8 @@ def calculate_rmsd(pdb_file1, pdb_file2):
 pdb_ref = 'F_AF.pdb' #replace with the name of your pdb reference
 
 structures = []
-for x in os.listdir('pdbs_rank001'):
+files = sorted(os.listdir('pdbs_rank001'))
+for x in files:
   structures.append('pdbs_rank001'+'/'+x)
 
 vals = []
