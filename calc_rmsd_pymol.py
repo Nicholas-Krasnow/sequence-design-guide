@@ -17,8 +17,21 @@ def calculate_rmsd(pdb_file1, pdb_file2):
 pdb_ref = 'F_AF.pdb' #replace with the name of your pdb reference
 
 structures = []
-files = sorted(os.listdir('pdbs_rank001'))
-for x in files:
+
+import re
+directory = 'pdbs_rank001'
+def extract_number_before_underscore(filename):
+    match = re.match(r'(\d+)_', filename)
+    return int(match.group(1)) if match else -1  # Use -1 to push non-matching files to the start
+
+files = [
+    f for f in os.listdir(directory)
+    if os.path.isfile(os.path.join(directory, f)) and re.match(r'\d+_', f)
+]
+
+sorted_files = sorted(files, key=extract_number_before_underscore)
+
+for x in sorted_files:
   structures.append('pdbs_rank001'+'/'+x)
 
 vals = []
