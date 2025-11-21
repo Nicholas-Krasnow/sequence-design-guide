@@ -33,11 +33,11 @@ BLAST+ Installation instructions provided below. For Python and Jupyter, follow 
 1.	Download the executable file from the above link for your operating system (e.g., ncbi-blast-2.15.0+-x64-macosx.tar.gz. Double click to unzip and move the unzipped file to your documents   
 2.	Add the program files to the Path so that your computer knows where to find them. Run the commands in the terminal:
 
-`Echo PATH=$PATH:~/Documents/ncbi-blast-2.15.0+/bin>>.bashrc`
+`echo PATH=$PATH:~/Documents/ncbi-blast-2.15.0+/bin>>.bashrc`
 
-`Echo export PATH>>.bashrc`
+`echo export PATH>>.bashrc`
 
-`Source .bashrc`
+`source .bashrc`
 
 Test the installation by entering 
 
