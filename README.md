@@ -1,7 +1,7 @@
 # sequence-design-guide
 Protocol to redesign enzyme sequences with ProteinMPNN followed in Krasnow et. al. 2025
 
-Expected install time on standard desktop: <1 hr
+Expected install time on standard desktop: <1 hr  
 Expected computing time: 1-2 hrs for most sections, AF2 predictions (section III) ~5 min/sequence
 ## Section I: generate residue constraints
 
